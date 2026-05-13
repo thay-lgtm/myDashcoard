@@ -12,11 +12,11 @@
 :root{
   --bg:#0a0a00;--surface:#111100;--surface2:#1a1a00;--surface3:#222200;
   --border:rgba(255,213,0,0.12);--border2:rgba(255,213,0,0.25);
-  --blue:#ffd500;--blue-dim:rgba(255,213,0,0.12);
-  --green:#ffd500;--green-dim:rgba(255,213,0,0.12);
-  --amber:#ffd500;--amber-dim:rgba(255,213,0,0.1);
-  --red:#ff4444;--red-dim:rgba(255,68,68,0.12);
-  --purple:#ffaa00;--purple-dim:rgba(255,170,0,0.12);
+  --blue:#4d8ff8;--blue-dim:rgba(77,143,248,0.12);
+  --green:#22d3a5;--green-dim:rgba(34,211,165,0.12);
+  --amber:#f5a623;--amber-dim:rgba(245,166,35,0.1);
+  --red:#f05252;--red-dim:rgba(240,82,82,0.12);
+  --purple:#a78bfa;--purple-dim:rgba(167,139,250,0.12);
   --text:#fff9e6;--text2:#d4b800;--text3:#6b5c00;
   --mono:'JetBrains Mono',monospace;--jakarta:'Plus Jakarta Sans',sans-serif;--lao:'Noto Sans Lao',sans-serif;
   --r:10px;--r-lg:14px;
@@ -44,13 +44,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
 .topbar-right{display:flex;align-items:center;gap:8px;}
 .btn-sm{font-size:12px;padding:6px 14px;border-radius:var(--r);border:none;font-family:var(--lao);cursor:pointer;font-weight:500;transition:opacity .15s;white-space:nowrap;}
 .btn-blue{background:var(--gold);color:#0a0a00;font-weight:700;}
-.btn-surface{background:var(--surface2);color:var(--text2);border:1px solid var(--border)!important;border:none;}
+.btn-surface{background:var(--surface2);color:var(--text2);border:1px solid var(--border);}
 .btn-sm:hover{opacity:.85;}
 
 /* LANG TOGGLE */
 .lang-toggle{display:flex;gap:2px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:2px;}
 .lang-btn{font-size:11px;padding:3px 10px;border-radius:16px;border:none;background:transparent;color:var(--text3);cursor:pointer;font-family:var(--jakarta);font-weight:600;transition:all .15s;}
-.lang-btn.active{background:var(--blue);color:#fff;}
+.lang-btn.active{background:var(--gold);color:#0a0a00;}
 
 /* FILTER PANEL */
 .filter-panel{background:#0e0e00;border-bottom:1px solid rgba(255,213,0,0.15);padding:.6rem 1.5rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:56px;z-index:90;}
@@ -192,6 +192,31 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
 .toast.show{opacity:1;transform:translateY(0);}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:2px;}
+/* RESPONSIVE */
+@media(max-width:900px){
+  .sidebar{width:60px;overflow:hidden;}
+  .sidebar:hover{width:230px;transition:width .2s;}
+  .sb-logo .brand,.sb-logo .sub,.sb-section,.sb-item span:not(.ico),.sb-version{display:none;}
+  .sidebar:hover .brand,.sidebar:hover .sub,.sidebar:hover .sb-section,.sidebar:hover .sb-item span:not(.ico),.sidebar:hover .sb-version{display:block;}
+  .sb-item{justify-content:center;padding:10px;}
+  .sidebar:hover .sb-item{justify-content:flex-start;padding:9px 1.5rem;}
+  .main{margin-left:60px;}
+}
+@media(max-width:768px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .row-2{grid-template-columns:1fr!important;}
+  .row-3{grid-template-columns:1fr!important;}
+  .row-eq{grid-template-columns:1fr!important;}
+  .entry-layout{grid-template-columns:1fr!important;}
+  .cmp-grid{grid-template-columns:1fr!important;}
+  .topbar{padding:0 .8rem;}
+  .page{padding:1rem .8rem;}
+}
+@media(max-width:480px){
+  .kpi-grid{grid-template-columns:1fr 1fr!important;}
+  .sidebar{display:none;}
+  .main{margin-left:0;}
+}
 </style>
 </head>
 <body>
@@ -538,6 +563,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
         <div class="field"><label data-lo="ເງີນເຂົ້າ (Cash In) ₭" data-en="Cash In ₭">Cash In ₭</label><input type="number" id="f-ci" placeholder="0" oninput="calcP()"></div>
         <div class="f2col"><div class="field"><label data-lo="ສ່ວນຫຼຸດ Point ₭" data-en="Disc Point ₭">ສ່ວນຫຼຸດ Point ₭</label><input type="number" id="f-dp" placeholder="0" oninput="calcP()"></div><div class="field"><label data-lo="ສ່ວນຫຼຸດ On Top ₭" data-en="Disc On Top ₭">On Top ₭</label><input type="number" id="f-dt" placeholder="0" oninput="calcP()"></div></div>
         <div class="f2col"><div class="field"><label>Coupon ₭</label><input type="number" id="f-cp" placeholder="0" oninput="calcP()"></div><div class="field"><label data-lo="Reward Pay Out ₭" data-en="Reward ₭">Reward ₭</label><input type="number" id="f-rw" placeholder="0" oninput="calcP()"></div></div>
+        <div class="field"><label data-lo="ຄ່າອາກອນ ₭" data-en="Tax ₭">ຄ່າອາກອນ ₭</label><input type="number" id="f-tax" value="180000000" oninput="calcP()"></div>
         <div class="field"><label data-lo="ໝາຍເຫດ" data-en="Note">ໝາຍເຫດ</label><input type="text" id="f-note" placeholder="..."></div>
       </div>
       <div class="form-card">
@@ -548,6 +574,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
           <div class="cr"><span data-lo="Disc On Top" data-en="Disc On Top">Disc On Top</span><span id="cr-dt" style="color:var(--purple)">₭0 ກີບ</span></div>
           <div class="cr"><span>Coupon</span><span id="cr-cp" style="color:var(--purple)">₭0 ກີບ</span></div>
           <div class="cr"><span>Reward</span><span id="cr-rw" style="color:var(--amber)">₭0 ກີບ</span></div>
+          <div class="cr"><span data-lo="ຄ່າອາກອນ" data-en="Tax">ຄ່າອາກອນ</span><span id="cr-tax" style="color:var(--red)">₭0 ກີບ</span></div>
           <div class="cr div"><span>Cash In</span><span id="cr-ci" style="color:var(--blue)">₭0 ກີບ</span></div>
           <div class="cr div tot" id="p-row"><span data-lo="ກຳໄລ (Profit)" data-en="Profit">ກຳໄລ</span><span id="cr-profit">₭0 ກີບ</span></div>
           <div class="cr" style="margin-top:4px"><span>Margin</span><span id="cr-mg" style="font-family:var(--mono);font-size:12px">0%</span></div>
@@ -626,11 +653,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
 <script>
 // ── CONSTANTS ────────────────────────────────────────────────────────────────
 const SK='mktdash_v4';
-let records=JSON.parse(localStorage.getItem(SK)||'[]');
+let records=(()=>{try{return JSON.parse(localStorage.getItem(SK)||'[]');}catch(e){return[];}})();
 let charts={}, activeFilter='ທັງໝົດ', filteredRecords=null, gfMode='all';
 let currentLang=localStorage.getItem('mkt_lang')||'lo';
 const MO=['Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'];
-const MC={Nov:'#7aa8f8',Dec:'#c4b5fd',Jan:'#6ee7cf',Feb:'#fbbf24',Mar:'#f87171',Apr:'#7dd3fc',May:'#86efac'};
+const MC={Nov:'#7aa8f8',Dec:'#c4b5fd',Jan:'#6ee7cf',Feb:'#fbbf24',Mar:'#f87171',Apr:'#7dd3fc',May:'#86efac',Jun:'#fb923c',Jul:'#f472b6',Aug:'#a3e635',Sep:'#34d399',Oct:'#818cf8'};
 const PAGES=['overview','marketing','compare','perperiod','weekly','monthly','entry','history'];
 const PT={
   overview:{lo:'Sales Overview',en:'Sales Overview',slo:'ພາບລວມຍອດຂາຍ',sen:'Revenue snapshot'},
@@ -950,7 +977,7 @@ function renderOV(){
   const r=getAR();const empty=document.getElementById('ov-empty');
   if(!r.length){empty.style.display='block';return;}empty.style.display='none';
   const tRev=r.reduce((s,x)=>s+x.revenue,0),tP=r.reduce((s,x)=>s+x.profit,0);
-  const tCI=r.reduce((s,x)=>s+x.cashin,0),tD=r.reduce((s,x)=>s+(x.discPoint||0)+(x.discTop||0)+(x.coupon||0)+(x.reward||0),0);
+  const tCI=r.reduce((s,x)=>s+x.cashin,0),tD=r.reduce((s,x)=>s+(x.discPoint||0)+(x.discTop||0)+(x.coupon||0)+(x.reward||0)+(x.tax||180000000),0);
   const mg=tRev?(tP/tRev*100):0;
   document.getElementById('k-rev').textContent=fmt(tRev);
   document.getElementById('k-profit').textContent=fmt(tP);document.getElementById('k-profit').style.color=tP>=0?'var(--green)':'var(--red)';
@@ -970,9 +997,9 @@ function renderOV(){
 function renderMkt(){
   const r=getAR();if(!r.length)return;
   const tRev=r.reduce((s,x)=>s+x.revenue,0),tCI=r.reduce((s,x)=>s+x.cashin,0),tP=r.reduce((s,x)=>s+x.profit,0);
-  const tDP=r.reduce((s,x)=>s+(x.discPoint||0),0),tDT=r.reduce((s,x)=>s+(x.discTop||0),0),tCP=r.reduce((s,x)=>s+(x.coupon||0),0),tRW=r.reduce((s,x)=>s+(x.reward||0),0);
-  document.getElementById('cost-funnel').innerHTML=[{l:'Revenue',v:tRev,c:'#4d8ff8'},{l:'Cash In',v:tCI,c:'#22d3a5'},{l:'Discount',v:tDP+tDT+tCP,c:'#a78bfa'},{l:'Reward',v:tRW,c:'#f5a623'},{l:'Profit',v:tP,c:tP>=0?'#22d3a5':'#f05252'}].map(f=>`<div class="funnel-row"><div class="f-lbl">${f.l}</div><div class="f-track"><div class="f-fill" style="width:${Math.max(2,Math.abs(f.v)/tRev*100).toFixed(1)}%;background:${f.c}"></div></div><div class="f-val" style="color:${f.c}">${fmt(f.v)}</div></div>`).join('');
-  const di=[{n:'Discount Point',v:tDP},{n:'Discount On Top',v:tDT},{n:'Coupon',v:tCP},{n:'Reward',v:tRW}];
+  const tDP=r.reduce((s,x)=>s+(x.discPoint||0),0),tDT=r.reduce((s,x)=>s+(x.discTop||0),0),tCP=r.reduce((s,x)=>s+(x.coupon||0),0),tRW=r.reduce((s,x)=>s+(x.reward||0),0),tTAX=r.reduce((s,x)=>s+(x.tax||180000000),0);
+  document.getElementById('cost-funnel').innerHTML=[{l:'Revenue',v:tRev,c:'#4d8ff8'},{l:'Cash In',v:tCI,c:'#22d3a5'},{l:'Discount',v:tDP+tDT+tCP,c:'#a78bfa'},{l:'Reward',v:tRW,c:'#f5a623'},{l:'ຄ່າອາກອນ',v:tTAX,c:'#f05252'},{l:'Profit',v:tP,c:tP>=0?'#22d3a5':'#f05252'}].map(f=>`<div class="funnel-row"><div class="f-lbl">${f.l}</div><div class="f-track"><div class="f-fill" style="width:${Math.max(2,Math.abs(f.v)/tRev*100).toFixed(1)}%;background:${f.c}"></div></div><div class="f-val" style="color:${f.c}">${fmt(f.v)}</div></div>`).join('');
+  const di=[{n:'Discount Point',v:tDP},{n:'Discount On Top',v:tDT},{n:'Coupon',v:tCP},{n:'Reward',v:tRW},{n:'ຄ່າອາກອນ',v:tTAX}];
   const mx=Math.max(...di.map(d=>d.v));
   document.getElementById('disc-breakdown').innerHTML=di.map(d=>`<div class="disc-row"><div class="d-name" style="font-size:12px;color:var(--text2)">${d.n}</div><div class="d-bw"><div class="d-bf" style="width:${mx?Math.round(d.v/mx*100):0}%"></div></div><div class="d-amt" style="font-family:var(--mono);font-size:11px;min-width:90px;text-align:right">${fmt(d.v)}</div></div>`).join('');
   const mM={rev:{},profit:{},reward:{}};r.forEach(x=>{mM.rev[x.month]=(mM.rev[x.month]||0)+x.revenue;mM.profit[x.month]=(mM.profit[x.month]||0)+x.profit;mM.reward[x.month]=(mM.reward[x.month]||0)+(x.reward||0);});
@@ -984,10 +1011,11 @@ function renderMkt(){
   dc('c-margin',{type:'bar',data:{labels:mL,datasets:[{data:mgD,backgroundColor:mgD.map(v=>v>=0?'rgba(34,211,165,.6)':'rgba(240,82,82,.6)'),borderColor:mgD.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:v=>v+'%'},grid:GR}}}});
   dc('c-reward',{type:'bar',data:{labels:mL,datasets:[{data:rwD,backgroundColor:'rgba(245,166,35,.6)',borderColor:'#f5a623',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:v=>v+'%'},grid:GR}}}});
   dc('c-mom',{type:'line',data:{labels:mL,datasets:[{data:momD,borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,.08)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:momD.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:v=>v+'%'},grid:GR}}}});
-  document.getElementById('mkt-tbl').innerHTML=`<table class="dtbl"><thead><tr><th>Month</th><th>Revenue</th><th>Cash In</th><th>Profit</th><th>Margin</th><th>Reward</th><th>Reward%</th><th>MoM</th></tr></thead><tbody>${mL.map((m,i)=>{
+  document.getElementById('mkt-tbl').innerHTML=`<table class="dtbl"><thead><tr><th>Month</th><th>Revenue</th><th>Cash In</th><th>Profit</th><th>Margin</th><th>Reward</th><th>Reward%</th><th>ອາກອນ</th><th>MoM</th></tr></thead><tbody>${mL.map((m,i)=>{
     const rev=mM.rev[m]||0,p=mM.profit[m]||0,rw=mM.reward[m]||0,isP=p>=0;
     const ci=r.filter(x=>x.month===m).reduce((s,x)=>s+x.cashin,0);
-    return`<tr><td><span class="mtag tag-${m.toLowerCase()}">${m}</span></td><td class="hi">${fmt(rev)}</td><td>${fmt(ci)}</td><td class="${isP?'green':'red'}">${fmt(p)}</td><td class="${isP?'green':'red'}">${rev?(p/rev*100).toFixed(1)+'%':'—'}</td><td style="color:var(--amber)">${fmt(rw)}</td><td style="color:var(--amber)">${rev?(rw/rev*100).toFixed(1)+'%':'—'}</td><td style="color:${momD[i]>=0?'var(--green)':'var(--red)'}">${i===0?'—':momD[i]+'%'}</td></tr>`;
+    const tax=r.filter(x=>x.month===m).reduce((s,x)=>s+(x.tax||180000000),0);
+    return`<tr><td><span class="mtag tag-${m.toLowerCase()}">${m}</span></td><td class="hi">${fmt(rev)}</td><td>${fmt(ci)}</td><td class="${isP?'green':'red'}">${fmt(p)}</td><td class="${isP?'green':'red'}">${rev?(p/rev*100).toFixed(1)+'%':'—'}</td><td style="color:var(--amber)">${fmt(rw)}</td><td style="color:var(--amber)">${rev?(rw/rev*100).toFixed(1)+'%':'—'}</td><td style="color:var(--red)">${fmt(tax)}</td><td style="color:${momD[i]>=0?'var(--green)':'var(--red)'}">${i===0?'—':momD[i]+'%'}</td></tr>`;
   }).join('')}</tbody></table>`;
 }
 
@@ -1070,7 +1098,7 @@ function renderPPData(r){
   const lbl=s.map(x=>x.date.slice(5)),rD=s.map(x=>x.revenue),pD=s.map(x=>x.profit),mgD=s.map(x=>x.revenue?(x.profit/x.revenue*100).toFixed(1):0);
   dc('c-pp-bar',{type:'bar',data:{labels:lbl,datasets:[{label:'Revenue',data:rD,backgroundColor:'rgba(77,143,248,.5)',borderColor:'#4d8ff8',borderWidth:1,borderRadius:3},{label:'Profit',data:pD,backgroundColor:pD.map(v=>v>=0?'rgba(34,211,165,.55)':'rgba(240,82,82,.55)'),borderColor:pD.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)}}},scales:{x:{ticks:{...TK,autoSkip:true,maxRotation:45},grid:GR},y:{ticks:{...TK,callback:fmtAx},grid:GR}}}});
   dc('c-pp-mg',{type:'line',data:{labels:lbl,datasets:[{data:mgD,borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,.08)',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:mgD.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{ticks:{...TK,autoSkip:true,maxRotation:45},grid:GR},y:{ticks:{...TK,callback:v=>v+'%'},grid:GR}}}});
-  document.getElementById('pp-table').innerHTML=`<table class="dtbl"><thead><tr><th>Date</th><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${s.map(x=>{const mg=x.revenue?(x.profit/x.revenue*100).toFixed(1):0;return`<tr><td class="hi">${x.date}</td><td><span class="mtag tag-${x.month.toLowerCase()}">${x.month}</span></td><td class="hi">${fmt(x.revenue)}</td><td>${fmt(x.cashin)}</td><td style="color:var(--purple)">${fmt((x.discPoint||0)+(x.discTop||0)+(x.coupon||0))}</td><td style="color:var(--amber)">${fmt(x.reward||0)}</td><td class="${x.profit>=0?'green':'red'}">${fmt(x.profit)}</td><td class="${mg>=0?'green':'red'}">${mg}%</td></tr>`;}).join('')}</tbody></table>`;
+  document.getElementById('pp-table').innerHTML=`<table class="dtbl"><thead><tr><th>Date</th><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${s.map(x=>{const mg=x.revenue?(x.profit/x.revenue*100).toFixed(1):0;const tax=x.tax||180000000;return`<tr><td class="hi">${x.date}</td><td><span class="mtag tag-${x.month.toLowerCase()}">${x.month}</span></td><td class="hi">${fmt(x.revenue)}</td><td>${fmt(x.cashin)}</td><td style="color:var(--purple)">${fmt((x.discPoint||0)+(x.discTop||0)+(x.coupon||0))}</td><td style="color:var(--amber)">${fmt(x.reward||0)}</td><td style="color:var(--red)">${fmt(tax)}</td><td class="${x.profit>=0?'green':'red'}">${fmt(x.profit)}</td><td class="${mg>=0?'green':'red'}">${mg}%</td></tr>`;}).join('')}</tbody></table>`;
 }
 
 // ── WEEKLY ───────────────────────────────────────────────────────────────────
@@ -1095,8 +1123,8 @@ function renderWKData(r){
 function renderMO(){lfPopulate('mo');renderMOData(getLFData('mo'));}
 function renderMOData(r){
   if(!r||!r.length)return;
-  const mM={rev:{},profit:{},disc:{},reward:{},ci:{}};
-  r.forEach(x=>{const m=x.month;mM.rev[m]=(mM.rev[m]||0)+x.revenue;mM.profit[m]=(mM.profit[m]||0)+x.profit;mM.disc[m]=(mM.disc[m]||0)+(x.discPoint||0)+(x.discTop||0)+(x.coupon||0);mM.reward[m]=(mM.reward[m]||0)+(x.reward||0);mM.ci[m]=(mM.ci[m]||0)+x.cashin;});
+  const mM={rev:{},profit:{},disc:{},reward:{},ci:{},tax:{}};
+  r.forEach(x=>{const m=x.month;mM.rev[m]=(mM.rev[m]||0)+x.revenue;mM.profit[m]=(mM.profit[m]||0)+x.profit;mM.disc[m]=(mM.disc[m]||0)+(x.discPoint||0)+(x.discTop||0)+(x.coupon||0);mM.reward[m]=(mM.reward[m]||0)+(x.reward||0);mM.ci[m]=(mM.ci[m]||0)+x.cashin;mM.tax[m]=(mM.tax[m]||0)+(x.tax||180000000);});
   const mL=MO.filter(m=>mM.rev[m]),rA=mL.map(m=>mM.rev[m]),pA=mL.map(m=>mM.profit[m]),mgA=mL.map(m=>mM.rev[m]?(mM.profit[m]/mM.rev[m]*100).toFixed(1):0);
   const bRI=rA.indexOf(Math.max(...rA)),bPI=pA.indexOf(Math.max(...pA));
   document.getElementById('mo-best-val').textContent=fmt(rA[bRI]);document.getElementById('mo-best-lbl').textContent=mL[bRI]||'—';
@@ -1106,16 +1134,17 @@ function renderMOData(r){
   dc('c-mo-rev',{type:'bar',data:{labels:mL,datasets:[{data:rA,backgroundColor:mL.map(m=>(MC[m]||'#888')+'99'),borderColor:mL.map(m=>MC[m]||'#888'),borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:fmtAx},grid:GR}}}});
   dc('c-mo-profit',{type:'bar',data:{labels:mL,datasets:[{data:pA,backgroundColor:pA.map(v=>v>=0?'rgba(34,211,165,.6)':'rgba(240,82,82,.6)'),borderColor:pA.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:fmtAx},grid:GR}}}});
   dc('c-mo-mg',{type:'line',data:{labels:mL,datasets:[{data:mgA,borderColor:'#f5a623',backgroundColor:'rgba(245,166,35,.08)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:mgA.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:2.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:v=>v+'%'},grid:GR}}}});
-  document.getElementById('mo-table').innerHTML=`<table class="dtbl"><thead><tr><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${mL.map((m,i)=>{const mg=parseFloat(mgA[i]);return`<tr><td><span class="mtag tag-${m.toLowerCase()}">${m}</span></td><td class="hi">${fmt(mM.rev[m])}</td><td>${fmt(mM.ci[m])}</td><td style="color:var(--purple)">${fmt(mM.disc[m])}</td><td style="color:var(--amber)">${fmt(mM.reward[m])}</td><td class="${mM.profit[m]>=0?'green':'red'}">${fmt(mM.profit[m])}</td><td class="${mg>=0?'green':'red'}">${mg.toFixed(1)}%</td></tr>`;}).join('')}</tbody></table>`;
+  document.getElementById('mo-table').innerHTML=`<table class="dtbl"><thead><tr><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${mL.map((m,i)=>{const mg=parseFloat(mgA[i]);return`<tr><td><span class="mtag tag-${m.toLowerCase()}">${m}</span></td><td class="hi">${fmt(mM.rev[m])}</td><td>${fmt(mM.ci[m])}</td><td style="color:var(--purple)">${fmt(mM.disc[m])}</td><td style="color:var(--amber)">${fmt(mM.reward[m])}</td><td style="color:var(--red)">${fmt(mM.tax[m]||0)}</td><td class="${mM.profit[m]>=0?'green':'red'}">${fmt(mM.profit[m])}</td><td class="${mg>=0?'green':'red'}">${mg.toFixed(1)}%</td></tr>`;}).join('')}</tbody></table>`;
 }
 
 // ── ENTRY ────────────────────────────────────────────────────────────────────
 function calcP(){
-  const rev=num('f-rev'),ci=num('f-ci'),dp=num('f-dp'),dt=num('f-dt'),cp=num('f-cp'),rw=num('f-rw');
-  const profit=ci-rw,mg=rev?(profit/rev*100):0;
+  const rev=num('f-rev'),ci=num('f-ci'),dp=num('f-dp'),dt=num('f-dt'),cp=num('f-cp'),rw=num('f-rw'),tax=num('f-tax')||180000000;
+  const profit=ci-rw-tax,mg=rev?(profit/rev*100):0;
   document.getElementById('cr-rev').textContent=fmt(rev);
   document.getElementById('cr-dp').textContent='- '+fmt(dp);document.getElementById('cr-dt').textContent='- '+fmt(dt);
   document.getElementById('cr-cp').textContent='- '+fmt(cp);document.getElementById('cr-rw').textContent='- '+fmt(rw);
+  document.getElementById('cr-tax').textContent='- '+fmt(tax);
   document.getElementById('cr-ci').textContent=fmt(ci);document.getElementById('cr-profit').textContent=fmt(profit);
   document.getElementById('cr-mg').textContent=mg.toFixed(1)+'%';
   document.getElementById('p-row').className='cr div tot '+(profit>=0?'pos':'neg');
@@ -1129,12 +1158,13 @@ function updateSide(){
 }
 function saveEntry(){
   const date=document.getElementById('f-date').value,month=document.getElementById('f-month').value;
-  const revenue=num('f-rev'),cashin=num('f-ci');
+  const revenue=num('f-rev'),cashin=num('f-ci'),tax=num('f-tax')||180000000;
   if(!date||!revenue){alert('ກະລຸນາໃສ່ວັນທີ ແລະ ຍອດຂາຍ');return;}
-  records.push({id:Date.now(),date,month,revenue,cashin,discPoint:num('f-dp'),discTop:num('f-dt'),coupon:num('f-cp'),reward:num('f-rw'),profit:cashin-num('f-rw'),note:document.getElementById('f-note').value});
-  localStorage.setItem(SK,JSON.stringify(records));
+  records.push({id:Date.now(),date,month,revenue,cashin,discPoint:num('f-dp'),discTop:num('f-dt'),coupon:num('f-cp'),reward:num('f-rw'),tax,profit:cashin-num('f-rw')-tax,note:document.getElementById('f-note').value});
+  try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){console.warn('localStorage error',e);}
   showToast('✓ '+(currentLang==='en'?'Saved':'ບັນທຶກສຳເລັດ'));
   ['f-rev','f-ci','f-dp','f-dt','f-cp','f-rw','f-note'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f-tax').value='180000000';
   calcP();populateGF();populateCmpSelects();
 }
 
@@ -1169,13 +1199,13 @@ function buildRecord(headers,vals){
   const cashin=get(['cash_in','cashin'],0),reward=get(['reward'],0);
   const mMap={jan:'Jan',feb:'Feb',mar:'Mar',apr:'Apr',may:'May',jun:'Jun',jul:'Jul',aug:'Aug',sep:'Sep',oct:'Oct',nov:'Nov',dec:'Dec'};
   const mr=get(['month'],'');const month=mMap[String(mr).toLowerCase().slice(0,3)]||String(mr).slice(0,3)||'—';
-  return{id:Date.now()+Math.random(),date:dateStr,month,revenue:Math.round(revenue),cashin:Math.round(cashin),discPoint:Math.round(get(['discount_point','discpoint'],0)),discTop:Math.round(get(['discount_on_top','disctop'],0)),coupon:Math.round(get(['coupon','counpon'],0)),reward:Math.round(reward),profit:Math.round(cashin-reward),note:''};
+  return{id:Date.now()+Math.random(),date:dateStr,month,revenue:Math.round(revenue),cashin:Math.round(cashin),discPoint:Math.round(get(['discount_point','discpoint'],0)),discTop:Math.round(get(['discount_on_top','disctop'],0)),coupon:Math.round(get(['coupon','coupon_value'],0)),reward:Math.round(reward),profit:Math.round(cashin-reward-180000000),note:''};
 }
 function finalizeImport(imported,fname){
   if(!imported.length){showUploadSt('error','ບໍ່ພົບຂໍ້ມູນ');return;}
   if(!confirm(`ພົບ ${imported.length} ລາຍການ — ນຳເຂົ້າ?`))return;
   imported.forEach(r=>records.push(r));
-  localStorage.setItem(SK,JSON.stringify(records));
+  try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){console.warn('localStorage error',e);}
   showUploadSt('success','✓ ນຳເຂົ້າ '+imported.length+' ລາຍການ');
   calcP();populateGF();document.getElementById('file-input').value='';
 }
@@ -1201,11 +1231,11 @@ function renderHistory(){
   document.getElementById('hist-cnt').textContent=(currentLang==='en'?'Total ':'ທັງໝົດ ')+f.length+(currentLang==='en'?' records':' ລາຍການ');
   const w=document.getElementById('hist-body');
   if(!f.length){w.innerHTML='<div class="empty"><div class="eico">📋</div><p>—</p></div>';return;}
-  w.innerHTML='<table class="dtbl"><thead><tr><th>Date</th><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>Profit</th><th>Note</th><th></th></tr></thead><tbody>'+[...f].sort((a,b)=>b.date.localeCompare(a.date)).map(r=>'<tr><td class="hi">'+r.date+'</td><td><span class="mtag tag-'+r.month.toLowerCase()+'">'+r.month+'</span></td><td class="hi">'+fmt(r.revenue)+'</td><td>'+fmt(r.cashin)+'</td><td style="color:var(--purple)">'+fmt((r.discPoint||0)+(r.discTop||0)+(r.coupon||0))+'</td><td style="color:var(--amber)">'+fmt(r.reward||0)+'</td><td class="'+(r.profit>=0?'green':'red')+'">'+fmt(r.profit)+'</td><td style="color:var(--text3);font-size:11px;font-family:var(--lao)">'+(r.note||'—')+'</td><td><button class="btn-del" onclick="delR('+r.id+')">✕</button></td></tr>').join('')+'</tbody></table>';
+  w.innerHTML='<table class="dtbl"><thead><tr><th>Date</th><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Note</th><th></th></tr></thead><tbody>'+[...f].sort((a,b)=>b.date.localeCompare(a.date)).map(r=>'<tr><td class="hi">'+r.date+'</td><td><span class="mtag tag-'+r.month.toLowerCase()+'">'+r.month+'</span></td><td class="hi">'+fmt(r.revenue)+'</td><td>'+fmt(r.cashin)+'</td><td style="color:var(--purple)">'+fmt((r.discPoint||0)+(r.discTop||0)+(r.coupon||0))+'</td><td style="color:var(--amber)">'+fmt(r.reward||0)+'</td><td style="color:var(--red)">'+fmt(r.tax||180000000)+'</td><td class="'+(r.profit>=0?'green':'red')+'">'+fmt(r.profit)+'</td><td style="color:var(--text3);font-size:11px;font-family:var(--lao)">'+(r.note||'—')+'</td><td><button class="btn-del" onclick="delR('+r.id+')">✕</button></td></tr>').join('')+'</tbody></table>';
 }
 function setHF(m){activeFilter=m;renderHistory();}
-function delR(id){if(!confirm('ລຶບ?'))return;records=records.filter(r=>r.id!==id);localStorage.setItem(SK,JSON.stringify(records));renderHistory();}
-function clearAll(){if(!confirm('ລຶບທັງໝົດ?'))return;records=[];localStorage.setItem(SK,JSON.stringify(records));renderHistory();}
+function delR(id){if(!confirm('ລຶບ?'))return;records=records.filter(r=>r.id!==id);try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){}renderHistory();}
+function clearAll(){if(!confirm('ລຶບທັງໝົດ?'))return;records=[];try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){}renderHistory();}
 
 // ── EXPORT CSV ───────────────────────────────────────────────────────────────
 function exportCSV(){
@@ -1343,8 +1373,9 @@ const PRESET_DATA=[{"id":1,"date":"2025-11-03","month":"Nov","revenue":15097000,
 
 function loadPresetData(){
   if(!confirm('ໂຫຼດ 80 records ຈາກ rev.xlsx?'))return;
-  records=[...PRESET_DATA];
-  localStorage.setItem(SK,JSON.stringify(records));
+  // Recalculate profit with tax deducted for preset data
+  records=PRESET_DATA.map(r=>({...r,tax:180000000,profit:r.cashin-(r.reward||0)-180000000}));
+  try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){console.warn('localStorage error',e);}
   showUploadSt('success','✓ ໂຫຼດ 80 records');
   calcP();populateGF();populateCmpSelects();showToast('✓ Loaded rev.xlsx');
 }
@@ -1443,7 +1474,7 @@ async function syncGS(showFeedback=true){
         const reward=Number(get(['reward'],0));
         const mr=get(['month'],'');
         const month=mo_map[String(mr).toLowerCase().slice(0,3)]||String(mr).slice(0,3)||'—';
-        return{id:Date.now()+idx,date:dateStr,month,revenue:Math.round(revenue),cashin:Math.round(cashin),discPoint:Math.round(Number(get(['discount_point','discpoint'],0))),discTop:Math.round(Number(get(['discount_on_top','disctop'],0))),coupon:Math.round(Number(get(['coupon','counpon'],0))),reward:Math.round(reward),profit:Math.round(cashin-reward),note:''};
+        return{id:Date.now()+idx,date:dateStr,month,revenue:Math.round(revenue),cashin:Math.round(cashin),discPoint:Math.round(Number(get(['discount_point','discpoint'],0))),discTop:Math.round(Number(get(['discount_on_top','disctop'],0))),coupon:Math.round(Number(get(['coupon','coupon_value'],0))),reward:Math.round(reward),tax:180000000,profit:Math.round(cashin-reward-180000000),note:''};
       }).filter(Boolean);
     } else {
       // CSV mode — try proxies
@@ -1457,7 +1488,7 @@ async function syncGS(showFeedback=true){
     }
     if(!imported.length)throw new Error('ບໍ່ພົບຂໍ້ມູນ — ກວດ Sheet name ແລະ headers');
     records=imported;
-    localStorage.setItem(SK,JSON.stringify(records));
+    try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){console.warn('localStorage error',e);}
     const ts=new Date().toLocaleTimeString('lo-LA');
     if(statusEl){statusEl.textContent=`✓ Sync ສຳເລັດ — ${records.length} records — ${ts}`;statusEl.style.color='var(--green)';}
     if(showFeedback)showToast(`✓ Synced ${records.length} records`);
@@ -1491,7 +1522,7 @@ const CACHE_TTL=5*60*1000; // 5 minutes — skip sync if data is fresh
     const old=['mktdash_v3','mktdash_v2','salespro_v2','sales_tracker_v1'];
     for(const k of old){try{const d=JSON.parse(localStorage.getItem(k)||'null');if(d&&d.length){records=d;localStorage.setItem(SK,JSON.stringify(records));break;}}catch(e){}}
   }
-  if(!records.length){records=[...PRESET_DATA];localStorage.setItem(SK,JSON.stringify(records));}
+  if(!records.length){records=PRESET_DATA.map(r=>({...r,tax:180000000,profit:r.cashin-(r.reward||0)-180000000}));try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){}}
 
   // restore UI settings
   setGsMode(gsModeVal||'apps');

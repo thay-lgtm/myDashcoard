@@ -311,6 +311,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
       <div class="kpi"><div class="bar" style="background:var(--purple)"></div><div class="k-lbl" data-lo="ສ່ວນຫຼຸດລວມ" data-en="Total Discount">ສ່ວນຫຼຸດລວມ</div><div class="k-val" id="k-disc">—</div><div class="k-sub" data-lo="Discount+Reward" data-en="Discount+Reward">Discount+Reward</div></div>
       <div class="kpi"><div class="bar" style="background:var(--red)"></div><div class="k-lbl" data-lo="Profit Margin" data-en="Profit Margin">Profit Margin</div><div class="k-val" id="k-mg">—</div><div class="k-sub" data-lo="ອັດຕາກຳໄລ" data-en="Profit rate">ອັດຕາກຳໄລ</div></div>
     </div>
+    <div class="kpi-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="kpi"><div class="bar" style="background:var(--blue)"></div><div class="k-lbl" data-lo="ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້" data-en="Users Purchased">ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້</div><div class="k-val" id="k-users">—</div><div class="k-sub" data-lo="ຈຳນວນຜູ້ໃຊ້ລວມທັງໝົດ" data-en="Total users who purchased">ຈຳນວນຜູ້ໃຊ້ລວມທັງໝົດ</div></div>
+      <div class="kpi"><div class="bar" style="background:var(--green)"></div><div class="k-lbl" data-lo="ຈຳນວນບິນທີ່ຊື້" data-en="Bills Purchased">ຈຳນວນບິນທີ່ຊື້</div><div class="k-val" id="k-bills">—</div><div class="k-sub" data-lo="ຈຳນວນບິນລວມທັງໝົດ" data-en="Total bills purchased">ຈຳນວນບິນລວມທັງໝົດ</div></div>
+    </div>
     <div class="row-2">
       <div class="card">
         <div class="card-hd"><div><div class="card-title" data-lo="ຍອດຂາຍ ແລະ ກຳໄລ" data-en="Revenue & Profit">ຍອດຂາຍ ແລະ ກຳໄລ</div><div class="card-sub" data-lo="ລາຍງວດ" data-en="Per period">ລາຍງວດ</div></div><span class="cbadge blue">Bar</span></div>
@@ -409,6 +413,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
       <div class="kpi"><div class="bar" style="background:var(--amber)"></div><div class="k-lbl" data-lo="ສະເລ່ຍ/ງວດ" data-en="Avg/Period">ສະເລ່ຍ/ງວດ</div><div class="k-val" id="pp-avg">—</div></div>
       <div class="kpi"><div class="bar" style="background:var(--purple)"></div><div class="k-lbl" data-lo="ຈຳນວນງວດ" data-en="Total Periods">ຈຳນວນງວດ</div><div class="k-val" id="pp-cnt">—</div></div>
     </div>
+    <div class="kpi-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="kpi"><div class="bar" style="background:var(--blue)"></div><div class="k-lbl" data-lo="ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້" data-en="Users Purchased">ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້</div><div class="k-val" id="pp-users">—</div><div class="k-sub" data-lo="ງວດລ່າສຸດທີ່ເລືອກ" data-en="Latest selected period">ງວດລ່າສຸດທີ່ເລືອກ</div></div>
+      <div class="kpi"><div class="bar" style="background:var(--green)"></div><div class="k-lbl" data-lo="ຈຳນວນບິນທີ່ຊື້" data-en="Bills Purchased">ຈຳນວນບິນທີ່ຊື້</div><div class="k-val" id="pp-bills">—</div><div class="k-sub" data-lo="ງວດລ່າສຸດທີ່ເລືອກ" data-en="Latest selected period">ງວດລ່າສຸດທີ່ເລືອກ</div></div>
+    </div>
     <div class="card row-full"><div class="card-hd"><div><div class="card-title" data-lo="ຍອດຂາຍ ແລະ ກຳໄລລາຍງວດ" data-en="Revenue & Profit Per Period">ຍອດຂາຍ ແລະ ກຳໄລລາຍງວດ</div></div><span class="cbadge blue">Bar</span></div><div class="legend"><span class="leg-i"><span class="leg-d" style="background:var(--blue)"></span><span data-lo="ຍອດຂາຍ" data-en="Revenue">ຍອດຂາຍ</span></span><span class="leg-i"><span class="leg-d" style="background:var(--green)"></span><span data-lo="ກຳໄລ" data-en="Profit">ກຳໄລ</span></span></div><div class="cw" style="height:240px"><canvas id="c-pp-bar"></canvas></div></div>
     <div class="card row-full"><div class="card-hd"><div class="card-title" data-lo="Margin ລາຍງວດ" data-en="Margin Per Period">Margin ລາຍງວດ</div></div><div class="cw" style="height:160px"><canvas id="c-pp-mg"></canvas></div></div>
     <div class="card"><div class="card-hd"><div class="card-title" data-lo="ຕາຕະລາງລາຍງວດ" data-en="Period Table">ຕາຕະລາງລາຍງວດ</div></div><div id="pp-table"></div></div>
@@ -440,11 +448,16 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
       <div class="kpi"><div class="bar" style="background:var(--green)"></div><div class="k-lbl">WoW Growth</div><div class="k-val" id="w-wow">—</div></div>
       <div class="kpi"><div class="bar" style="background:var(--amber)"></div><div class="k-lbl" data-lo="ສະເລ່ຍ/ອາທິດ" data-en="Avg/Week">ສະເລ່ຍ/ອາທິດ</div><div class="k-val" id="w-avg">—</div></div>
     </div>
+    <div class="kpi-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="kpi"><div class="bar" style="background:var(--blue)"></div><div class="k-lbl" data-lo="ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້" data-en="Users Purchased">ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້</div><div class="k-val" id="w-users">—</div><div class="k-sub" data-lo="ອາທິດລ່າສຸດທີ່ເລືອກ" data-en="Latest selected week">ອາທິດລ່າສຸດທີ່ເລືອກ</div></div>
+      <div class="kpi"><div class="bar" style="background:var(--green)"></div><div class="k-lbl" data-lo="ຈຳນວນບິນທີ່ຊື້" data-en="Bills Purchased">ຈຳນວນບິນທີ່ຊື້</div><div class="k-val" id="w-bills">—</div><div class="k-sub" data-lo="ອາທິດລ່າສຸດທີ່ເລືອກ" data-en="Latest selected week">ອາທິດລ່າສຸດທີ່ເລືອກ</div></div>
+    </div>
     <div class="card row-full"><div class="card-hd"><div><div class="card-title" data-lo="ຍອດຂາຍລາຍອາທິດ" data-en="Weekly Revenue">ຍອດຂາຍລາຍອາທິດ</div></div><span class="cbadge blue">Line</span></div><div class="legend"><span class="leg-i"><span class="leg-d" style="background:var(--blue)"></span><span data-lo="ຍອດຂາຍ" data-en="Revenue">ຍອດຂາຍ</span></span><span class="leg-i"><span class="leg-d" style="background:var(--green)"></span><span data-lo="ກຳໄລ" data-en="Profit">ກຳໄລ</span></span></div><div class="cw" style="height:240px"><canvas id="c-weekly"></canvas></div></div>
     <div class="row-eq">
       <div class="card"><div class="card-hd"><div class="card-title">WoW Change %</div></div><div class="cw" style="height:190px"><canvas id="c-wow-bar"></canvas></div></div>
       <div class="card"><div class="card-hd"><div class="card-title" data-lo="Top 5 ອາທິດ" data-en="Top 5 Weeks">Top 5 ອາທິດ</div></div><div id="top5-weeks"></div></div>
     </div>
+    <div class="card"><div class="card-hd"><div class="card-title" data-lo="ຕາຕະລາງລາຍອາທິດ" data-en="Weekly Table">ຕາຕະລາງລາຍອາທິດ</div></div><div id="wk-table"></div></div>
   </div>
 
   <!-- MONTHLY -->
@@ -468,6 +481,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
       <div class="kpi"><div class="bar" style="background:var(--green)"></div><div class="k-lbl" data-lo="ກຳໄລສູງສຸດ" data-en="Best Profit">ກຳໄລສູງສຸດ</div><div class="k-val" id="mo-profit-best">—</div><div class="k-sub" id="mo-profit-lbl">—</div></div>
       <div class="kpi"><div class="bar" style="background:var(--amber)"></div><div class="k-lbl" data-lo="ສະເລ່ຍ/ເດືອນ" data-en="Avg/Month">ສະເລ່ຍ/ເດືອນ</div><div class="k-val" id="mo-avg">—</div></div>
       <div class="kpi"><div class="bar" style="background:var(--purple)"></div><div class="k-lbl">Avg Margin</div><div class="k-val" id="mo-avg-mg">—</div></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="kpi"><div class="bar" style="background:var(--blue)"></div><div class="k-lbl" data-lo="ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້" data-en="Users Purchased">ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້</div><div class="k-val" id="mo-users">—</div><div class="k-sub" data-lo="ເດືອນລ່າສຸດທີ່ເລືອກ" data-en="Latest selected month">ເດືອນລ່າສຸດທີ່ເລືອກ</div></div>
+      <div class="kpi"><div class="bar" style="background:var(--green)"></div><div class="k-lbl" data-lo="ຈຳນວນບິນທີ່ຊື້" data-en="Bills Purchased">ຈຳນວນບິນທີ່ຊື້</div><div class="k-val" id="mo-bills">—</div><div class="k-sub" data-lo="ເດືອນລ່າສຸດທີ່ເລືອກ" data-en="Latest selected month">ເດືອນລ່າສຸດທີ່ເລືອກ</div></div>
     </div>
     <div class="row-eq">
       <div class="card"><div class="card-hd"><div class="card-title" data-lo="ຍອດຂາຍລາຍເດືອນ" data-en="Monthly Revenue">ຍອດຂາຍລາຍເດືອນ</div></div><div class="cw" style="height:200px"><canvas id="c-mo-rev"></canvas></div></div>
@@ -559,6 +576,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--lao);min-height:10
       <div class="form-card">
         <h2 data-lo="ຂໍ້ມູນຍອດຂາຍ" data-en="Sales Data">ຂໍ້ມູນຍອດຂາຍ</h2>
         <div class="f2col"><div class="field"><label data-lo="ວັນທີ" data-en="Date">ວັນທີ</label><input type="date" id="f-date"></div><div class="field"><label data-lo="ເດືອນ" data-en="Month">ເດືອນ</label><select id="f-month"><option value="Nov">ພະຈິກ (Nov)</option><option value="Dec">ທັນວາ (Dec)</option><option value="Jan">ມັງກອນ (Jan)</option><option value="Feb">ກຸມພາ (Feb)</option><option value="Mar">ມີນາ (Mar)</option><option value="Apr">ເມສາ (Apr)</option><option value="May">ພຶດສະພາ (May)</option></select></div></div>
+        <div class="f2col"><div class="field"><label data-lo="ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້" data-en="Users Purchased">ຈຳນວນຜູ້ໃຊ້ທີ່ຊື້</label><input type="number" id="f-users" placeholder="0"></div><div class="field"><label data-lo="ຈຳນວນບິນທີ່ຊື້" data-en="Bills Purchased">ຈຳນວນບິນທີ່ຊື້</label><input type="number" id="f-bills" placeholder="0"></div></div>
         <div class="field"><label data-lo="ຍອດຂາຍ (Revenue) ₭" data-en="Revenue ₭">ຍອດຂາຍ ₭</label><input type="number" id="f-rev" placeholder="0" oninput="calcP()"></div>
         <div class="field"><label data-lo="ເງີນເຂົ້າ (Cash In) ₭" data-en="Cash In ₭">Cash In ₭</label><input type="number" id="f-ci" placeholder="0" oninput="calcP()"></div>
         <div class="f2col"><div class="field"><label data-lo="ສ່ວນຫຼຸດ Point ₭" data-en="Disc Point ₭">ສ່ວນຫຼຸດ Point ₭</label><input type="number" id="f-dp" placeholder="0" oninput="calcP()"></div><div class="field"><label data-lo="ສ່ວນຫຼຸດ On Top ₭" data-en="Disc On Top ₭">On Top ₭</label><input type="number" id="f-dt" placeholder="0" oninput="calcP()"></div></div>
@@ -978,11 +996,14 @@ function renderOV(){
   if(!r.length){empty.style.display='block';return;}empty.style.display='none';
   const tRev=r.reduce((s,x)=>s+x.revenue,0),tP=r.reduce((s,x)=>s+x.profit,0);
   const tCI=r.reduce((s,x)=>s+x.cashin,0),tD=r.reduce((s,x)=>s+(x.discPoint||0)+(x.discTop||0)+(x.coupon||0)+(x.reward||0)+(x.tax||180000000),0);
+  const tUsers=r.reduce((s,x)=>s+(x.users||0),0),tBills=r.reduce((s,x)=>s+(x.bills||0),0);
   const mg=tRev?(tP/tRev*100):0;
   document.getElementById('k-rev').textContent=fmt(tRev);
   document.getElementById('k-profit').textContent=fmt(tP);document.getElementById('k-profit').style.color=tP>=0?'var(--green)':'var(--red)';
   const pt=document.getElementById('k-pt');pt.textContent=mg.toFixed(1)+'% margin';pt.className='k-trend '+(tP>=0?'up':'down');
   document.getElementById('k-ci').textContent=fmt(tCI);document.getElementById('k-disc').textContent=fmt(tD);document.getElementById('k-mg').textContent=mg.toFixed(1)+'%';
+  const kUsersEl=document.getElementById('k-users');if(kUsersEl)kUsersEl.textContent=tUsers.toLocaleString('en-US');
+  const kBillsEl=document.getElementById('k-bills');if(kBillsEl)kBillsEl.textContent=tBills.toLocaleString('en-US');
   const s=[...r].sort((a,b)=>a.date.localeCompare(b.date));
   const lbl=s.map(x=>x.date.slice(5)),rD=s.map(x=>x.revenue),pD=s.map(x=>x.profit);
   let cum=0;const cD=s.map(x=>{cum+=x.revenue;return cum;});
@@ -1095,46 +1116,56 @@ function renderPPData(r){
   const pe=document.getElementById('pp-profit');pe.textContent=fmt(last.profit);pe.style.color=last.profit>=0?'var(--green)':'var(--red)';
   document.getElementById('pp-avg').textContent=fmt(Math.round(avg));
   document.getElementById('pp-cnt').textContent=s.length+' ງວດ';
+  const ppUsersEl=document.getElementById('pp-users');if(ppUsersEl)ppUsersEl.textContent=(last.users||0).toLocaleString('en-US');
+  const ppBillsEl=document.getElementById('pp-bills');if(ppBillsEl)ppBillsEl.textContent=(last.bills||0).toLocaleString('en-US');
   const lbl=s.map(x=>x.date.slice(5)),rD=s.map(x=>x.revenue),pD=s.map(x=>x.profit),mgD=s.map(x=>x.revenue?(x.profit/x.revenue*100).toFixed(1):0);
   dc('c-pp-bar',{type:'bar',data:{labels:lbl,datasets:[{label:'Revenue',data:rD,backgroundColor:'rgba(77,143,248,.5)',borderColor:'#4d8ff8',borderWidth:1,borderRadius:3},{label:'Profit',data:pD,backgroundColor:pD.map(v=>v>=0?'rgba(34,211,165,.55)':'rgba(240,82,82,.55)'),borderColor:pD.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)}}},scales:{x:{ticks:{...TK,autoSkip:true,maxRotation:45},grid:GR},y:{ticks:{...TK,callback:fmtAx},grid:GR}}}});
   dc('c-pp-mg',{type:'line',data:{labels:lbl,datasets:[{data:mgD,borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,.08)',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:mgD.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{ticks:{...TK,autoSkip:true,maxRotation:45},grid:GR},y:{ticks:{...TK,callback:v=>v+'%'},grid:GR}}}});
-  document.getElementById('pp-table').innerHTML=`<table class="dtbl"><thead><tr><th>Date</th><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${s.map(x=>{const mg=x.revenue?(x.profit/x.revenue*100).toFixed(1):0;const tax=x.tax||180000000;return`<tr><td class="hi">${x.date}</td><td><span class="mtag tag-${x.month.toLowerCase()}">${x.month}</span></td><td class="hi">${fmt(x.revenue)}</td><td>${fmt(x.cashin)}</td><td style="color:var(--purple)">${fmt((x.discPoint||0)+(x.discTop||0)+(x.coupon||0))}</td><td style="color:var(--amber)">${fmt(x.reward||0)}</td><td style="color:var(--red)">${fmt(tax)}</td><td class="${x.profit>=0?'green':'red'}">${fmt(x.profit)}</td><td class="${mg>=0?'green':'red'}">${mg}%</td></tr>`;}).join('')}</tbody></table>`;
+  document.getElementById('pp-table').innerHTML=`<table class="dtbl"><thead><tr><th>Date</th><th>Month</th><th data-lo="ຜູ້ໃຊ້" data-en="Users">ຜູ້ໃຊ້</th><th data-lo="ບິນ" data-en="Bills">ບິນ</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${s.map(x=>{const mg=x.revenue?(x.profit/x.revenue*100).toFixed(1):0;const tax=x.tax||180000000;return`<tr><td class="hi">${x.date}</td><td><span class="mtag tag-${x.month.toLowerCase()}">${x.month}</span></td><td>${(x.users||0).toLocaleString('en-US')}</td><td>${(x.bills||0).toLocaleString('en-US')}</td><td class="hi">${fmt(x.revenue)}</td><td>${fmt(x.cashin)}</td><td style="color:var(--purple)">${fmt((x.discPoint||0)+(x.discTop||0)+(x.coupon||0))}</td><td style="color:var(--amber)">${fmt(x.reward||0)}</td><td style="color:var(--red)">${fmt(tax)}</td><td class="${x.profit>=0?'green':'red'}">${fmt(x.profit)}</td><td class="${mg>=0?'green':'red'}">${mg}%</td></tr>`;}).join('')}</tbody></table>`;
 }
 
 // ── WEEKLY ───────────────────────────────────────────────────────────────────
 function renderWK(){lfPopulate('wk');renderWKData(getLFData('wk'));}
 function renderWKData(r){
   if(!r||!r.length)return;
-  const wM={};r.forEach(x=>{const k=wkKey(x.date);if(!wM[k])wM[k]={revenue:0,profit:0};wM[k].revenue+=x.revenue;wM[k].profit+=x.profit;});
+  const wM={};r.forEach(x=>{const k=wkKey(x.date);if(!wM[k])wM[k]={revenue:0,profit:0,users:0,bills:0};wM[k].revenue+=x.revenue;wM[k].profit+=x.profit;wM[k].users+=(x.users||0);wM[k].bills+=(x.bills||0);});
   const wK=Object.keys(wM).sort(),wR=wK.map(k=>wM[k].revenue),wP=wK.map(k=>wM[k].profit),wL=wK.map(k=>'W'+k.slice(5,10));
   const lastR=wM[wK[wK.length-1]]?.revenue||0,prevR=wK.length>=2?wM[wK[wK.length-2]]?.revenue||0:0;
   const wow=prevR?((lastR-prevR)/prevR*100).toFixed(1):0,avg=wK.reduce((s,k)=>s+wM[k].revenue,0)/wK.length;
   document.getElementById('w-last').textContent=fmt(lastR);document.getElementById('w-prev').textContent=fmt(prevR);
   const we=document.getElementById('w-wow');we.textContent=wow+'%';we.style.color=wow>=0?'var(--green)':'var(--red)';
   document.getElementById('w-avg').textContent=fmt(Math.round(avg));
+  const lastWkAgg=wM[wK[wK.length-1]]||{users:0,bills:0};
+  const wUsersEl=document.getElementById('w-users');if(wUsersEl)wUsersEl.textContent=(lastWkAgg.users||0).toLocaleString('en-US');
+  const wBillsEl=document.getElementById('w-bills');if(wBillsEl)wBillsEl.textContent=(lastWkAgg.bills||0).toLocaleString('en-US');
   dc('c-weekly',{type:'line',data:{labels:wL,datasets:[{label:'Revenue',data:wR,borderColor:'#4d8ff8',backgroundColor:'rgba(77,143,248,.08)',fill:true,tension:.35,pointRadius:5,pointBackgroundColor:'#4d8ff8',borderWidth:2.5},{label:'Profit',data:wP,borderColor:'#22d3a5',backgroundColor:'rgba(34,211,165,.06)',fill:true,tension:.35,pointRadius:5,pointBackgroundColor:wP.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:2,borderDash:[6,3]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)}}},scales:{x:{ticks:{...TK,autoSkip:true,maxRotation:45},grid:GR},y:{ticks:{...TK,callback:fmtAx},grid:GR}}}});
   const wowD=wR.map((v,i)=>i===0?0:wR[i-1]?+((v-wR[i-1])/wR[i-1]*100).toFixed(1):0);
   dc('c-wow-bar',{type:'bar',data:{labels:wL.slice(1),datasets:[{data:wowD.slice(1),backgroundColor:wowD.slice(1).map(v=>v>=0?'rgba(34,211,165,.6)':'rgba(240,82,82,.6)'),borderColor:wowD.slice(1).map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{ticks:{...TK,autoSkip:true,maxRotation:45},grid:GR},y:{ticks:{...TK,callback:v=>v+'%'},grid:GR}}}});
   const top5=[...wK].sort((a,b)=>wM[b].revenue-wM[a].revenue).slice(0,5),mx=wM[top5[0]]?.revenue||1;
   document.getElementById('top5-weeks').innerHTML=top5.map((k,i)=>`<div class="funnel-row" style="padding:10px 0"><div class="f-lbl" style="font-family:var(--mono);font-size:11px;color:var(--text3)">#${i+1} ${k.slice(5)}</div><div class="f-track"><div class="f-fill" style="width:${(wM[k].revenue/mx*100).toFixed(0)}%;background:var(--blue)"></div></div><div class="f-val" style="color:var(--blue)">${fmt(wM[k].revenue)}</div></div>`).join('');
+  const wkTblEl=document.getElementById('wk-table');
+  if(wkTblEl)wkTblEl.innerHTML=`<table class="dtbl"><thead><tr><th data-lo="ອາທິດ" data-en="Week">ອາທິດ</th><th data-lo="ຜູ້ໃຊ້" data-en="Users">ຜູ້ໃຊ້</th><th data-lo="ບິນ" data-en="Bills">ບິນ</th><th>Revenue</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${wK.map(k=>{const mg=wM[k].revenue?(wM[k].profit/wM[k].revenue*100).toFixed(1):0;return`<tr><td class="hi">${'W'+k.slice(5,10)}</td><td>${(wM[k].users||0).toLocaleString('en-US')}</td><td>${(wM[k].bills||0).toLocaleString('en-US')}</td><td class="hi">${fmt(wM[k].revenue)}</td><td class="${wM[k].profit>=0?'green':'red'}">${fmt(wM[k].profit)}</td><td class="${mg>=0?'green':'red'}">${mg}%</td></tr>`;}).join('')}</tbody></table>`;
 }
 
 // ── MONTHLY ──────────────────────────────────────────────────────────────────
 function renderMO(){lfPopulate('mo');renderMOData(getLFData('mo'));}
 function renderMOData(r){
   if(!r||!r.length)return;
-  const mM={rev:{},profit:{},disc:{},reward:{},ci:{},tax:{}};
-  r.forEach(x=>{const m=x.month;mM.rev[m]=(mM.rev[m]||0)+x.revenue;mM.profit[m]=(mM.profit[m]||0)+x.profit;mM.disc[m]=(mM.disc[m]||0)+(x.discPoint||0)+(x.discTop||0)+(x.coupon||0);mM.reward[m]=(mM.reward[m]||0)+(x.reward||0);mM.ci[m]=(mM.ci[m]||0)+x.cashin;mM.tax[m]=(mM.tax[m]||0)+(x.tax||180000000);});
+  const mM={rev:{},profit:{},disc:{},reward:{},ci:{},tax:{},users:{},bills:{}};
+  r.forEach(x=>{const m=x.month;mM.rev[m]=(mM.rev[m]||0)+x.revenue;mM.profit[m]=(mM.profit[m]||0)+x.profit;mM.disc[m]=(mM.disc[m]||0)+(x.discPoint||0)+(x.discTop||0)+(x.coupon||0);mM.reward[m]=(mM.reward[m]||0)+(x.reward||0);mM.ci[m]=(mM.ci[m]||0)+x.cashin;mM.tax[m]=(mM.tax[m]||0)+(x.tax||180000000);mM.users[m]=(mM.users[m]||0)+(x.users||0);mM.bills[m]=(mM.bills[m]||0)+(x.bills||0);});
   const mL=MO.filter(m=>mM.rev[m]),rA=mL.map(m=>mM.rev[m]),pA=mL.map(m=>mM.profit[m]),mgA=mL.map(m=>mM.rev[m]?(mM.profit[m]/mM.rev[m]*100).toFixed(1):0);
   const bRI=rA.indexOf(Math.max(...rA)),bPI=pA.indexOf(Math.max(...pA));
   document.getElementById('mo-best-val').textContent=fmt(rA[bRI]);document.getElementById('mo-best-lbl').textContent=mL[bRI]||'—';
   document.getElementById('mo-profit-best').textContent=fmt(pA[bPI]);document.getElementById('mo-profit-lbl').textContent=mL[bPI]||'—';
   document.getElementById('mo-avg').textContent=fmt(Math.round(rA.reduce((a,b)=>a+b,0)/rA.length));
   document.getElementById('mo-avg-mg').textContent=(mgA.reduce((a,b)=>a+parseFloat(b),0)/mgA.length).toFixed(1)+'%';
+  const lastMo=mL[mL.length-1];
+  const moUsersEl=document.getElementById('mo-users');if(moUsersEl)moUsersEl.textContent=(mM.users[lastMo]||0).toLocaleString('en-US');
+  const moBillsEl=document.getElementById('mo-bills');if(moBillsEl)moBillsEl.textContent=(mM.bills[lastMo]||0).toLocaleString('en-US');
   dc('c-mo-rev',{type:'bar',data:{labels:mL,datasets:[{data:rA,backgroundColor:mL.map(m=>(MC[m]||'#888')+'99'),borderColor:mL.map(m=>MC[m]||'#888'),borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:fmtAx},grid:GR}}}});
   dc('c-mo-profit',{type:'bar',data:{labels:mL,datasets:[{data:pA,backgroundColor:pA.map(v=>v>=0?'rgba(34,211,165,.6)':'rgba(240,82,82,.6)'),borderColor:pA.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:fmtAx},grid:GR}}}});
   dc('c-mo-mg',{type:'line',data:{labels:mL,datasets:[{data:mgA,borderColor:'#f5a623',backgroundColor:'rgba(245,166,35,.08)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:mgA.map(v=>v>=0?'#22d3a5':'#f05252'),borderWidth:2.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{ticks:TK,grid:GR},y:{ticks:{...TK,callback:v=>v+'%'},grid:GR}}}});
-  document.getElementById('mo-table').innerHTML=`<table class="dtbl"><thead><tr><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${mL.map((m,i)=>{const mg=parseFloat(mgA[i]);return`<tr><td><span class="mtag tag-${m.toLowerCase()}">${m}</span></td><td class="hi">${fmt(mM.rev[m])}</td><td>${fmt(mM.ci[m])}</td><td style="color:var(--purple)">${fmt(mM.disc[m])}</td><td style="color:var(--amber)">${fmt(mM.reward[m])}</td><td style="color:var(--red)">${fmt(mM.tax[m]||0)}</td><td class="${mM.profit[m]>=0?'green':'red'}">${fmt(mM.profit[m])}</td><td class="${mg>=0?'green':'red'}">${mg.toFixed(1)}%</td></tr>`;}).join('')}</tbody></table>`;
+  document.getElementById('mo-table').innerHTML=`<table class="dtbl"><thead><tr><th>Month</th><th data-lo="ຜູ້ໃຊ້" data-en="Users">ຜູ້ໃຊ້</th><th data-lo="ບິນ" data-en="Bills">ບິນ</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Margin</th></tr></thead><tbody>${mL.map((m,i)=>{const mg=parseFloat(mgA[i]);return`<tr><td><span class="mtag tag-${m.toLowerCase()}">${m}</span></td><td>${(mM.users[m]||0).toLocaleString('en-US')}</td><td>${(mM.bills[m]||0).toLocaleString('en-US')}</td><td class="hi">${fmt(mM.rev[m])}</td><td>${fmt(mM.ci[m])}</td><td style="color:var(--purple)">${fmt(mM.disc[m])}</td><td style="color:var(--amber)">${fmt(mM.reward[m])}</td><td style="color:var(--red)">${fmt(mM.tax[m]||0)}</td><td class="${mM.profit[m]>=0?'green':'red'}">${fmt(mM.profit[m])}</td><td class="${mg>=0?'green':'red'}">${mg.toFixed(1)}%</td></tr>`;}).join('')}</tbody></table>`;
 }
 
 // ── ENTRY ────────────────────────────────────────────────────────────────────
@@ -1160,10 +1191,10 @@ function saveEntry(){
   const date=document.getElementById('f-date').value,month=document.getElementById('f-month').value;
   const revenue=num('f-rev'),cashin=num('f-ci'),tax=num('f-tax')||180000000;
   if(!date||!revenue){alert('ກະລຸນາໃສ່ວັນທີ ແລະ ຍອດຂາຍ');return;}
-  records.push({id:Date.now(),date,month,revenue,cashin,discPoint:num('f-dp'),discTop:num('f-dt'),coupon:num('f-cp'),reward:num('f-rw'),tax,profit:cashin-num('f-rw')-tax,note:document.getElementById('f-note').value});
+  records.push({id:Date.now(),date,month,revenue,cashin,discPoint:num('f-dp'),discTop:num('f-dt'),coupon:num('f-cp'),reward:num('f-rw'),tax,users:num('f-users'),bills:num('f-bills'),profit:cashin-num('f-rw')-tax,note:document.getElementById('f-note').value});
   try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){console.warn('localStorage error',e);}
   showToast('✓ '+(currentLang==='en'?'Saved':'ບັນທຶກສຳເລັດ'));
-  ['f-rev','f-ci','f-dp','f-dt','f-cp','f-rw','f-note'].forEach(id=>document.getElementById(id).value='');
+  ['f-rev','f-ci','f-dp','f-dt','f-cp','f-rw','f-users','f-bills','f-note'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('f-tax').value='180000000';
   calcP();populateGF();populateCmpSelects();
 }
@@ -1199,7 +1230,7 @@ function buildRecord(headers,vals){
   const cashin=get(['cash_in','cashin'],0),reward=get(['reward'],0);
   const mMap={jan:'Jan',feb:'Feb',mar:'Mar',apr:'Apr',may:'May',jun:'Jun',jul:'Jul',aug:'Aug',sep:'Sep',oct:'Oct',nov:'Nov',dec:'Dec'};
   const mr=get(['month'],'');const month=mMap[String(mr).toLowerCase().slice(0,3)]||String(mr).slice(0,3)||'—';
-  return{id:Date.now()+Math.random(),date:dateStr,month,revenue:Math.round(revenue),cashin:Math.round(cashin),discPoint:Math.round(get(['discount_point','discpoint'],0)),discTop:Math.round(get(['discount_on_top','disctop'],0)),coupon:Math.round(get(['coupon','coupon_value'],0)),reward:Math.round(reward),profit:Math.round(cashin-reward-180000000),note:''};
+  return{id:Date.now()+Math.random(),date:dateStr,month,revenue:Math.round(revenue),cashin:Math.round(cashin),discPoint:Math.round(get(['discount_point','discpoint'],0)),discTop:Math.round(get(['discount_on_top','disctop'],0)),coupon:Math.round(get(['coupon','coupon_value'],0)),reward:Math.round(reward),users:Math.round(get(['users_purchased','users'],0)),bills:Math.round(get(['bills'],0)),profit:Math.round(cashin-reward-180000000),note:''};
 }
 function finalizeImport(imported,fname){
   if(!imported.length){showUploadSt('error','ບໍ່ພົບຂໍ້ມູນ');return;}
@@ -1231,7 +1262,7 @@ function renderHistory(){
   document.getElementById('hist-cnt').textContent=(currentLang==='en'?'Total ':'ທັງໝົດ ')+f.length+(currentLang==='en'?' records':' ລາຍການ');
   const w=document.getElementById('hist-body');
   if(!f.length){w.innerHTML='<div class="empty"><div class="eico">📋</div><p>—</p></div>';return;}
-  w.innerHTML='<table class="dtbl"><thead><tr><th>Date</th><th>Month</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Note</th><th></th></tr></thead><tbody>'+[...f].sort((a,b)=>b.date.localeCompare(a.date)).map(r=>'<tr><td class="hi">'+r.date+'</td><td><span class="mtag tag-'+r.month.toLowerCase()+'">'+r.month+'</span></td><td class="hi">'+fmt(r.revenue)+'</td><td>'+fmt(r.cashin)+'</td><td style="color:var(--purple)">'+fmt((r.discPoint||0)+(r.discTop||0)+(r.coupon||0))+'</td><td style="color:var(--amber)">'+fmt(r.reward||0)+'</td><td style="color:var(--red)">'+fmt(r.tax||180000000)+'</td><td class="'+(r.profit>=0?'green':'red')+'">'+fmt(r.profit)+'</td><td style="color:var(--text3);font-size:11px;font-family:var(--lao)">'+(r.note||'—')+'</td><td><button class="btn-del" onclick="delR('+r.id+')">✕</button></td></tr>').join('')+'</tbody></table>';
+  w.innerHTML='<table class="dtbl"><thead><tr><th>Date</th><th>Month</th><th data-lo="ຜູ້ໃຊ້" data-en="Users">ຜູ້ໃຊ້</th><th data-lo="ບິນ" data-en="Bills">ບິນ</th><th>Revenue</th><th>Cash In</th><th>Discount</th><th>Reward</th><th>ອາກອນ</th><th>Profit</th><th>Note</th><th></th></tr></thead><tbody>'+[...f].sort((a,b)=>b.date.localeCompare(a.date)).map(r=>'<tr><td class="hi">'+r.date+'</td><td><span class="mtag tag-'+r.month.toLowerCase()+'">'+r.month+'</span></td><td>'+(r.users||0).toLocaleString('en-US')+'</td><td>'+(r.bills||0).toLocaleString('en-US')+'</td><td class="hi">'+fmt(r.revenue)+'</td><td>'+fmt(r.cashin)+'</td><td style="color:var(--purple)">'+fmt((r.discPoint||0)+(r.discTop||0)+(r.coupon||0))+'</td><td style="color:var(--amber)">'+fmt(r.reward||0)+'</td><td style="color:var(--red)">'+fmt(r.tax||180000000)+'</td><td class="'+(r.profit>=0?'green':'red')+'">'+fmt(r.profit)+'</td><td style="color:var(--text3);font-size:11px;font-family:var(--lao)">'+(r.note||'—')+'</td><td><button class="btn-del" onclick="delR('+r.id+')">✕</button></td></tr>').join('')+'</tbody></table>';
 }
 function setHF(m){activeFilter=m;renderHistory();}
 function delR(id){if(!confirm('ລຶບ?'))return;records=records.filter(r=>r.id!==id);try{localStorage.setItem(SK,JSON.stringify(records));}catch(e){}renderHistory();}
@@ -1240,8 +1271,8 @@ function clearAll(){if(!confirm('ລຶບທັງໝົດ?'))return;records=[
 // ── EXPORT CSV ───────────────────────────────────────────────────────────────
 function exportCSV(){
   if(!records.length){showToast('⚠ No data');return;}
-  const h='Date,Month,Revenue,CashIn,DiscPoint,DiscTop,Coupon,Reward,Profit,Note';
-  const rows=records.map(r=>[r.date,r.month,r.revenue,r.cashin,r.discPoint||0,r.discTop||0,r.coupon||0,r.reward||0,r.profit,r.note||''].join(','));
+  const h='Date,Month,UsersPurchased,Bills,Revenue,CashIn,DiscPoint,DiscTop,Coupon,Reward,Profit,Note';
+  const rows=records.map(r=>[r.date,r.month,r.users||0,r.bills||0,r.revenue,r.cashin,r.discPoint||0,r.discTop||0,r.coupon||0,r.reward||0,r.profit,r.note||''].join(','));
   const blob=new Blob([[h,...rows].join('\n')],{type:'text/csv'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='marketing_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
   showToast('✓ CSV exported');
@@ -1474,7 +1505,7 @@ async function syncGS(showFeedback=true){
         const reward=Number(get(['reward'],0));
         const mr=get(['month'],'');
         const month=mo_map[String(mr).toLowerCase().slice(0,3)]||String(mr).slice(0,3)||'—';
-        return{id:Date.now()+idx,date:dateStr,month,revenue:Math.round(revenue),cashin:Math.round(cashin),discPoint:Math.round(Number(get(['discount_point','discpoint'],0))),discTop:Math.round(Number(get(['discount_on_top','disctop'],0))),coupon:Math.round(Number(get(['coupon','coupon_value'],0))),reward:Math.round(reward),tax:180000000,profit:Math.round(cashin-reward-180000000),note:''};
+        return{id:Date.now()+idx,date:dateStr,month,revenue:Math.round(revenue),cashin:Math.round(cashin),discPoint:Math.round(Number(get(['discount_point','discpoint'],0))),discTop:Math.round(Number(get(['discount_on_top','disctop'],0))),coupon:Math.round(Number(get(['coupon','coupon_value'],0))),reward:Math.round(reward),users:Math.round(Number(get(['users_purchased','users purchased','users'],0))),bills:Math.round(Number(get(['bills'],0))),tax:180000000,profit:Math.round(cashin-reward-180000000),note:''};
       }).filter(Boolean);
     } else {
       // CSV mode — try proxies
